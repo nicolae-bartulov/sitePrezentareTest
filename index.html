@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Nume companie] – Sisteme de securitate</title>
+<meta name="description" content="Supraveghere video, alarmă antiefracție, control acces și detecție incendiu. Solicită o ofertă. [Text de înlocuit]">
+<script>
+/* Tema salvată se aplică înainte de afișare, ca să nu apară un „flash” */
+try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}
+</script>
+<link rel="stylesheet" href="style.css">
+<script>
+/* Ecran de intrare: doar la prima vizită din sesiune și doar dacă nu e activă „mișcare redusă”. Fără JS, nu apare. */
+(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('intro'))return;sessionStorage.setItem('intro','1')}catch(e){}document.documentElement.classList.add('has-intro')})();
+</script>
+</head>
+<body>
+<a class="skip" href="#continut">Sari la conținut</a>
+<div id="intro" aria-label="Ecran de intrare" role="presentation">
+  <div class="door door-l"></div><div class="door door-r"></div>
+  <div class="intro-c">
+    <!-- LOGO PROVIZORIU: înlocuiește elementul .logo cu <img src="logo.svg" alt="Nume companie"> -->
+    <span class="logo" aria-hidden="true"></span>
+    <span class="intro-ph">Logo provizoriu, de înlocuit</span>
+    <p class="msg" role="status">Access Permis</p>
+  </div>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></symbol>
+<symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></symbol>
+<symbol id="i-tool" viewBox="0 0 24 24"><path d="M14 6a4 4 0 005 5l-9 9a2 2 0 01-3-3l9-9a4 4 0 01-2-2z"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+<symbol id="i-mon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+</defs>
+</svg>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#acasa"><span class="logo" aria-hidden="true"></span>[Nume companie]</a>
+    <nav id="nav" aria-label="Principal">
+      <a href="#servicii">Servicii</a><a href="#solutii">Soluții</a><a href="#cum-lucram">Cum lucrăm</a>
+      <a href="#proiecte">Proiecte</a><a href="#despre">Despre noi</a><a href="#intrebari">Întrebări</a><a href="#contact">Contact</a>
+      <a class="btn small" href="#contact">Solicită o ofertă</a>
+    </nav>
+    <div class="tools">
+      <button id="tema" class="theme" type="button" aria-label="Temă întunecată" aria-pressed="false"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <button class="burger" aria-expanded="false" aria-controls="nav">Meniu</button>
+    </div>
+  </div>
+</header>
+
+<main id="continut">
+<div id="pagina-principala">
+
+<section id="acasa" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Securitate planificată pentru spațiul tău, nu pachete standard.</h1>
+      <p class="lead">Proiectăm, instalăm și întreținem sisteme de supraveghere, alarmă, control acces și detecție incendiu pentru locuințe, spații comerciale și firme.</p>
+      <ul class="ticks">
+        <li>Evaluare la fața locului și recomandare pe înțelesul tău</li>
+        <li>Instalare, mentenanță și service în același loc</li>
+        <li>Sisteme ușor de folosit, din aplicație sau de la tastatură</li>
+      </ul>
+      <p><a class="btn" href="#contact">Solicită o ofertă</a> <a class="btn ghost" href="#servicii">Vezi serviciile</a></p>
+    </div>
+    <figure class="plan">
+      <svg viewBox="0 0 320 240" role="img" aria-labelledby="plan-t">
+        <title id="plan-t">Plan schematic al unui spațiu cu camere, senzori și control acces</title>
+        <rect x="10" y="10" width="300" height="220" rx="4" class="wall"/>
+        <path d="M10 120h120M190 120h120M130 10v110M200 120v110" class="wall"/>
+        <path d="M60 30l50 40-50 20z" class="cone"/><path d="M290 30l-50 40 50 20z" class="cone"/>
+        <circle cx="60" cy="30" r="5" class="dot"/><circle cx="290" cy="30" r="5" class="dot"/>
+        <circle cx="165" cy="70" r="5" class="dot2"/><circle cx="250" cy="180" r="5" class="dot2"/><circle cx="70" cy="180" r="5" class="dot2"/>
+        <rect x="124" y="214" width="12" height="16" class="door"/>
+        <g class="lg"><circle cx="20" cy="262" r="5" class="dot"/><text x="30" y="266">Cameră</text><circle cx="100" cy="262" r="5" class="dot2"/><text x="110" y="266">Senzor</text><rect x="170" y="256" width="10" height="12" class="door"/><text x="186" y="266">Acces</text></g>
+      </svg>
+      <figcaption>Schemă ilustrativă. Fiecare plan real pornește de la vizita la fața locului.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="servicii" class="sec">
+  <div class="wrap">
+    <h2>Servicii</h2>
+    <p class="intro">Alegi un singur serviciu sau un sistem integrat. În ambele cazuri, ai un singur interlocutor.</p>
+    <div class="grid3">
+      <article class="card"><svg class="ic"><use href="#i-cam"/></svg><h3>Supraveghere video</h3><p>Vezi ce se întâmplă la intrare, în parcare sau în depozit, de pe telefon sau calculator, cu imagini clare ziua și noaptea.</p></article>
+      <article class="card"><svg class="ic"><use href="#i-shield"/></svg><h3>Alarmă antiefracție</h3><p>Senzori pe uși, ferestre și în interior, care te anunță rapid când se întâmplă ceva neobișnuit, fără alarme false inutile.</p></article>
+      <article class="card"><svg class="ic"><use href="#i-key"/></svg><h3>Control acces și interfonie</h3><p>Decizi cine intră, unde și când: carduri, coduri sau telefon, plus interfon video pentru bloc, birou sau casă.</p></article>
+      <article class="card"><svg class="ic"><use href="#i-fire"/></svg><h3>Detecție și alarmare la incendiu</h3><p>Detectoare și sirene instalate conform proiectului, pentru ca un început de incendiu să fie semnalat din timp.</p></article>
+      <article class="card"><svg class="ic"><use href="#i-tool"/></svg><h3>Instalare, mentenanță și service</h3><p>Montaj îngrijit, verificări periodice și intervenții când ai o problemă, pentru ca sistemul să funcționeze când ai nevoie de el.</p></article>
+      <article class="card"><svg class="ic"><use href="#i-mon"/></svg><h3>Monitorizare</h3><p>Alarma poate fi preluată de un dispecerat. <mark class="ph">[DE CONFIRMAT: serviciul este disponibil? În ce condiții și zone?]</mark></p></article>
+    </div>
+  </div>
+</section>
+
+<section id="solutii" class="sec alt">
+  <div class="wrap">
+    <h2>Soluții pentru fiecare tip de spațiu</h2>
+    <div class="grid3">
+      <article class="sol"><h3>Locuințe</h3><p>Case și apartamente: alarmă, camere discrete, interfon video și detecție incendiu, ușor de folosit de întreaga familie.</p></article>
+      <article class="sol"><h3>Spații comerciale</h3><p>Magazine și depozite: supraveghere a zonelor de vânzare și marfă, alarmă în afara programului, acces controlat în zonele de stoc.</p></article>
+      <article class="sol"><h3>Sedii de firmă și asociații</h3><p>Birouri și blocuri: control acces pe niveluri, interfonie, istoric al intrărilor și supraveghere a spațiilor comune.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="cum-lucram" class="sec">
+  <div class="wrap">
+    <h2>Cum lucrăm</h2>
+    <ol class="steps">
+      <li><h3>Evaluare</h3><p>Discutăm nevoile tale și analizăm spațiul, la fața locului sau pe baza planurilor.</p></li>
+      <li><h3>Recomandare</h3><p>Primești o ofertă clară cu soluția propusă, echipamentele și costurile, fără surprize.</p></li>
+      <li><h3>Instalare</h3><p>Montăm, configurăm și te instruim să folosești sistemul.</p></li>
+      <li><h3>Mentenanță</h3><p>Verificăm periodic sistemul și intervenim când este nevoie.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="proiecte" class="sec alt">
+  <div class="wrap">
+    <h2>Proiecte</h2>
+    <p class="intro"><mark class="ph">Exemple demonstrative, nu proiecte reale. Înlocuiește-le cu lucrări proprii, cu acordul clienților.</mark></p>
+    <div class="grid3">
+      <article class="proj"><div class="img" role="img" aria-label="Imagine înlocuibilă"><span>Imagine de înlocuit</span></div><h3>Casă cu curte (exemplu)</h3><p>Camere perimetrale, alarmă pe zone și interfon video la poartă.</p></article>
+      <article class="proj"><div class="img" role="img" aria-label="Imagine înlocuibilă"><span>Imagine de înlocuit</span></div><h3>Magazin cu depozit (exemplu)</h3><p>Supraveghere în sală și depozit, alarmă și acces limitat în zona de stoc.</p></article>
+      <article class="proj"><div class="img" role="img" aria-label="Imagine înlocuibilă"><span>Imagine de înlocuit</span></div><h3>Bloc de locuințe (exemplu)</h3><p>Interfonie, control acces la intrări și camere în spațiile comune.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="despre" class="sec">
+  <div class="wrap narrow">
+    <h2>Despre noi</h2>
+    <p><mark class="ph">[Text provizoriu] Aici prezintă pe scurt compania: anul înființării, echipa, zona în care lucrați, experiența reală.</mark></p>
+    <p><mark class="ph">[De completat doar dacă sunt reale] Autorizări, atestate, certificări, parteneri sau garanții oferite.</mark></p>
+  </div>
+</section>
+
+<section id="intrebari" class="sec alt">
+  <div class="wrap narrow">
+    <h2>Întrebări frecvente</h2>
+    <details><summary>Cât costă un sistem de securitate?</summary><p>Depinde de mărimea spațiului, de numărul de echipamente și de tipul de sistem. După evaluare primești o ofertă detaliată.</p></details>
+    <details><summary>Cât durează o instalare?</summary><p>De la câteva ore la mai multe zile, în funcție de complexitate. Îți spunem estimarea în ofertă.</p></details>
+    <details><summary>Pot controla sistemul de pe telefon?</summary><p>În multe cazuri da, în funcție de echipamentele alese. Stabilim împreună ce ți se potrivește.</p></details>
+    <details><summary>Oferiți mentenanță după instalare?</summary><p><mark class="ph">[De confirmat: condiții, frecvență, contract de service]</mark></p></details>
+    <details><summary>Oferiți monitorizare 24/7?</summary><p><mark class="ph">[De confirmat dacă serviciul există și cum funcționează]</mark></p></details>
+    <details><summary>Ce se întâmplă cu imaginile înregistrate?</summary><p>Stocarea și accesul se stabilesc în funcție de nevoile tale și de legislația aplicabilă. <mark class="ph">[De completat cu practica reală a companiei]</mark></p></details>
+  </div>
+</section>
+
+<section id="contact" class="sec">
+  <div class="wrap contact">
+    <div>
+      <h2>Solicită o ofertă</h2>
+      <p>Spune-ne pe scurt ce ai nevoie și te contactăm.</p>
+      <p><strong>Telefon:</strong> <mark class="ph">0700 000 000 [de înlocuit]</mark><br>
+      <strong>E-mail:</strong> <mark class="ph">contact@exemplu.ro [de înlocuit]</mark><br>
+      <strong>Program:</strong> <mark class="ph">[de completat]</mark></p>
+    </div>
+    <form id="form" novalidate>
+      <div class="f"><label for="nume">Nume</label><input id="nume" name="nume" autocomplete="name" required></div>
+      <div class="f"><label for="tip">Sunt</label><select id="tip" name="tip"><option>Persoană fizică</option><option>Firmă</option><option>Asociație de proprietari</option></select></div>
+      <div class="f"><label for="tel">Telefon</label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
+      <div class="f"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="f"><label for="srv">Serviciu dorit</label><select id="srv" name="srv"><option>Supraveghere video</option><option>Alarmă antiefracție</option><option>Control acces și interfonie</option><option>Detecție incendiu</option><option>Mentenanță / service</option><option>Nu știu încă, am nevoie de consultanță</option></select></div>
+      <div class="f"><label for="msg">Detalii (opțional)</label><textarea id="msg" name="msg" rows="4"></textarea></div>
+      <div class="f chk"><input id="ok" type="checkbox" required><label for="ok">Sunt de acord cu prelucrarea datelor conform <a href="#confidentialitate">Politicii de confidențialitate</a>.</label></div>
+      <button class="btn" type="submit">Trimite solicitarea</button>
+      <p id="stare" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</div>
+
+<div id="pagina-legala" hidden>
+  <div class="wrap narrow sec">
+    <p><a href="#acasa">Înapoi la site</a></p>
+    <article id="confidentialitate">
+      <h1>Politica de confidențialitate</h1>
+      <p><mark class="ph">Pagină provizorie. Trebuie redactată sau verificată de un specialist și adaptată situației reale a companiei (GDPR).</mark></p>
+      <h2>Operatorul datelor</h2><p><mark class="ph">[Denumire, CUI, sediu, e-mail de contact]</mark></p>
+      <h2>Ce date colectăm și de ce</h2><p><mark class="ph">[Date din formular: nume, telefon, e-mail, mesaj. Scop, temei legal, durată de păstrare, destinatari]</mark></p>
+      <h2>Drepturile tale</h2><p><mark class="ph">[Acces, rectificare, ștergere, restricționare, portabilitate, opoziție, plângere la ANSPDCP]</mark></p>
+    </article>
+    <article id="cookies">
+      <h1>Politica de cookie-uri</h1>
+      <p><mark class="ph">Pagină provizorie. În această versiune site-ul nu folosește cookie-uri și nu are bannere de consimțământ. Dacă adaugi statistici, hărți sau alte servicii externe, completează lista și implementează consimțământul.</mark></p>
+      <p><mark class="ph">[Lista cookie-urilor folosite, scop, durată, furnizor]</mark></p>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© <span id="an"></span> <mark class="ph">[Nume companie, CUI, nr. reg. com.]</mark></p>
+    <p><a href="#confidentialitate">Confidențialitate</a> · <a href="#cookies">Cookie-uri</a></p>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
