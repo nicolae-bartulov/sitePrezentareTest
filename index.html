@@ -162,14 +162,15 @@ try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light')document.docum
       <strong>E-mail:</strong> <mark class="ph">contact@exemplu.ro [de înlocuit]</mark><br>
       <strong>Program:</strong> <mark class="ph">[de completat]</mark></p>
     </div>
-    <form id="form" novalidate>
+    <form id="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="113ee90f-7fc9-47b4-a3d4-be224382a63f">
       <div class="f"><label for="nume">Nume</label><input id="nume" name="nume" autocomplete="name" required></div>
       <div class="f"><label for="tip">Sunt</label><select id="tip" name="tip"><option>Persoană fizică</option><option>Firmă</option><option>Asociație de proprietari</option></select></div>
       <div class="f"><label for="tel">Telefon</label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
       <div class="f"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
       <div class="f"><label for="srv">Serviciu dorit</label><select id="srv" name="srv"><option>Supraveghere video</option><option>Alarmă antiefracție</option><option>Control acces și interfonie</option><option>Detecție incendiu</option><option>Mentenanță / service</option><option>Nu știu încă, am nevoie de consultanță</option></select></div>
       <div class="f"><label for="msg">Detalii (opțional)</label><textarea id="msg" name="msg" rows="4"></textarea></div>
-      <div class="f chk"><input id="ok" type="checkbox" required><label for="ok">Sunt de acord cu prelucrarea datelor conform <a href="#confidentialitate">Politicii de confidențialitate</a>.</label></div>
+      <div class="f chk"><input id="ok" name="consimtamant" type="checkbox" value="Da" required><label for="ok">Sunt de acord cu prelucrarea datelor conform <a href="#confidentialitate">Politicii de confidențialitate</a>.</label></div>
       <button class="btn" type="submit">Trimite solicitarea</button>
       <p id="stare" role="status" aria-live="polite"></p>
     </form>

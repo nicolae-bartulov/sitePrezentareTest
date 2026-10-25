@@ -20,7 +20,7 @@
     el.classList.toggle('err',!!txt);el.removeAttribute('aria-invalid');
     if(txt){var p=document.createElement('p');p.className='msg-err';p.textContent=txt;el.parentNode.appendChild(p);el.setAttribute('aria-invalid','true')}
   }
-  form.addEventListener('submit',function(e){
+  form.addEventListener('submit',async function(e){
     e.preventDefault();var bad=null;
     [['nume','Completează numele.'],['tel','Completează un număr de telefon.'],['email','Completează un e-mail valid.']].forEach(function(f){
       var el=form.elements[f[0]],v=el.value.trim(),ok=v&&(f[0]!=='email'||/^\S+@\S+\.\S+$/.test(v))&&(f[0]!=='tel'||v.replace(/\D/g,'').length>=9);
@@ -29,9 +29,20 @@
     var ok=document.getElementById('ok');setErr(ok,ok.checked?'':'Bifează acordul pentru a trimite solicitarea.');
     if(!ok.checked&&!bad)bad=ok;
     if(bad){bad.focus();stare.textContent='Verifică câmpurile marcate.';return}
-    /* DEMO: aici nu se trimite nimic. Conectează formularul la un serviciu real (vezi README). */
-    stare.textContent='Mod demonstrativ: formularul este valid, dar nu a fost trimis nicăieri. Conectează-l la un serviciu de e-mail înainte de publicare.';
-    form.reset();
+    var submit=form.querySelector('[type="submit"]'),submitLabel=submit.textContent;
+    submit.disabled=true;submit.textContent='Se trimite...';
+    stare.textContent='Solicitarea se trimite...';
+    try{
+      var response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      var result=await response.json();
+      if(!response.ok||!result.success)throw new Error(result.message||'Trimiterea solicitării a eșuat.');
+      stare.textContent='Solicitarea a fost trimisă. Îți mulțumim!';
+      form.reset();
+    }catch(error){
+      stare.textContent='Nu am putut trimite solicitarea. Verifică conexiunea și încearcă din nou.';
+    }finally{
+      submit.disabled=false;submit.textContent=submitLabel;
+    }
   });
 })();
 

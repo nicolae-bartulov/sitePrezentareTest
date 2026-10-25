@@ -13,7 +13,7 @@ Site static: HTML + CSS + JavaScript, fără instalări.
 - Confirmarea serviciului de monitorizare și răspunsurile din FAQ marcate
 - Proiectele demonstrative și imaginile (folosește poze proprii sau cu licență clară)
 - Politica de confidențialitate și de cookie-uri (verificate de un specialist)
-- Formularul: acum doar validează. Conectează-l la un serviciu (Formspree, Netlify Forms) sau la un backend propriu.
+- Formularul folosește Web3Forms. Configurează și verifică adresa destinatarului în contul Web3Forms și confirmă că domeniul și cheia de acces sunt configurate corect înainte de publicare. Formularul afișează confirmarea după un răspuns de succes și păstrează datele dacă trimiterea eșuează.
 
 ## Ecran de intrare
 - Apare doar la prima vizită dintr-o sesiune și nu apare dacă utilizatorul are „mișcare redusă” activă.
