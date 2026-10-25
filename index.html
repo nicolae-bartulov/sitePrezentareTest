@@ -20,9 +20,7 @@ try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light')document.docum
 <div id="intro" aria-label="Ecran de intrare" role="presentation">
   <div class="door door-l"></div><div class="door door-r"></div>
   <div class="intro-c">
-    <!-- LOGO PROVIZORIU: înlocuiește elementul .logo cu <img src="logo.svg" alt="Nume companie"> -->
-    <span class="logo" aria-hidden="true"></span>
-    <span class="intro-ph">Logo provizoriu, de înlocuit</span>
+    <img class="logo intro-logo" src="logo.JPEG" alt="ONYX Security Solutions">
     <p class="msg" role="status">Access Permis</p>
   </div>
 </div>
@@ -41,7 +39,7 @@ try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light')document.docum
 
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="#acasa"><span class="logo" aria-hidden="true"></span>[Nume companie]</a>
+    <a class="brand" href="#acasa"><img class="logo" src="logo.JPEG" alt="ONYX Security Solutions"></a>
     <nav id="nav" aria-label="Principal">
       <a href="#servicii">Servicii</a><a href="#solutii">Soluții</a><a href="#cum-lucram">Cum lucrăm</a>
       <a href="#proiecte">Proiecte</a><a href="#despre">Despre noi</a><a href="#intrebari">Întrebări</a><a href="#contact">Contact</a>
@@ -67,10 +65,10 @@ try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light')document.docum
         <li>Instalare, mentenanță și service în același loc</li>
         <li>Sisteme ușor de folosit, din aplicație sau de la tastatură</li>
       </ul>
-      <p><a class="btn" href="#contact">Solicită o ofertă</a> <a class="btn ghost" href="#servicii">Vezi serviciile</a></p>
+      <p class="hero-actions"><a class="btn" href="#contact">Solicită o ofertă</a> <a class="btn ghost" href="#servicii">Vezi serviciile</a></p>
     </div>
     <figure class="plan">
-      <svg viewBox="0 0 320 240" role="img" aria-labelledby="plan-t">
+      <svg viewBox="0 0 320 280" role="img" aria-labelledby="plan-t">
         <title id="plan-t">Plan schematic al unui spațiu cu camere, senzori și control acces</title>
         <rect x="10" y="10" width="300" height="220" rx="4" class="wall"/>
         <path d="M10 120h120M190 120h120M130 10v110M200 120v110" class="wall"/>
