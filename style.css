@@ -2,7 +2,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{margin:0;font:1.0625rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
-body:after{content:"";position:fixed;z-index:4;inset:0;margin:auto;width:min(72vw,640px);aspect-ratio:1;background:var(--ink);opacity:.035;pointer-events:none;mask-image:url("logo.JPEG");mask-mode:luminance;mask-repeat:no-repeat;mask-position:center;mask-size:contain}
+body:after{content:"";position:fixed;z-index:4;inset:0;margin:auto;width:min(72vw,640px);aspect-ratio:1;background:url("logo.JPEG") center/contain no-repeat;filter:grayscale(1);mix-blend-mode:difference;opacity:.035;pointer-events:none}
 h1,h2,h3{font-family:Georgia,"Iowan Old Style",serif;line-height:1.2;margin:0 0 .6em}
 h1{font-size:clamp(2rem,5vw,3.1rem)}h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}h3{font-size:1.2rem}
 p{margin:0 0 1em}a{color:var(--acc-d)}
@@ -64,17 +64,27 @@ nav a{padding:12px 0;border-bottom:1px solid #2b4350}nav .btn{margin-top:12px;te
 
 /* Ecran de intrare */
 #intro{display:none}
-html.has-intro #intro{display:block;position:fixed;inset:0;z-index:100;cursor:pointer;animation:introfail 0s linear 4.5s forwards}
+html.has-intro #intro{display:block;position:fixed;inset:0;z-index:100;animation:introfail 0s linear 4.5s forwards}
+html.has-intro.intro-active #intro{animation:none}
+html.intro-unlocked #intro-form{display:none}
 @keyframes introfail{to{visibility:hidden;pointer-events:none}}
 #intro .door{position:absolute;top:0;bottom:0;width:50%;background:#000;transition:transform .7s cubic-bezier(.77,0,.18,1)}
 #intro .door-l{left:0;border-right:1px solid #1c2f38}#intro .door-r{right:0;border-left:1px solid #1c2f38}
 #intro.open .door-l{transform:translateX(-100%)}#intro.open .door-r{transform:translateX(100%)}
-.intro-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;transition:opacity .35s ease .45s}
+.intro-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;color:#fff;transition:opacity .35s ease .45s}
 #intro.open .intro-c{opacity:0}
-#intro .intro-logo{width:min(60vw,240px);height:auto;opacity:1;transition:opacity .7s ease}
+#intro .intro-logo{width:min(76vw,320px);height:auto;opacity:1;transition:opacity .7s ease}
 #intro.open .intro-logo{opacity:0}
-#intro .msg{margin:0;min-height:1.6em;font:700 1.25rem Georgia,serif;color:var(--cta);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+#intro .intro-form{display:flex;align-items:center;gap:8px;width:min(78vw,260px);margin-top:-6px;padding:0 4px}
+#intro .intro-label{flex:none;color:rgba(255,255,255,.58);font-size:.85rem}
+#intro .intro-form input{flex:1;min-width:0;padding:7px 2px;border:0;border-radius:0;background:transparent;color:#fff;text-align:left;font-size:.9rem}
+#intro .intro-form input:focus-visible{outline:none}
+#intro .intro-submit{display:grid;place-items:center;width:32px;height:32px;flex:none;padding:0;border:0;background:transparent;color:rgba(255,255,255,.58);cursor:pointer}
+#intro .intro-submit svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#intro .intro-submit:hover,#intro .intro-submit:focus-visible{color:var(--cta)}
+#intro .msg{margin:0;min-height:1.6em;font:700 1.1rem Georgia,serif;color:var(--cta);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
 #intro.granted .msg{opacity:1;transform:none}
+#intro.error .msg{color:#ff9b91;opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){#intro{display:none!important}}
 
 /* Temă întunecată: setată explicit sau urmând sistemul */

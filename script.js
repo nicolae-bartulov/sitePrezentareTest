@@ -46,16 +46,49 @@
   });
 })();
 
-/* Ecran de intrare: logo, apoi „Access Permis”, apoi deschidere. Orice tastă sau click îl închide. */
+/* Acces demo la ecranul de intrare. Parola este doar o verificare vizuală, nu autentificare. */
 (function(){
-  var el=document.getElementById('intro'),root=document.documentElement;
-  if(!el||!root.classList.contains('has-intro'))return;
-  var t=[];
-  function done(){t.forEach(clearTimeout);el.remove();root.classList.remove('has-intro');document.removeEventListener('keydown',done)}
-  t.push(setTimeout(function(){el.classList.add('granted')},1200));
-  t.push(setTimeout(function(){el.classList.add('open')},1900));
-  t.push(setTimeout(done,2800));
-  el.addEventListener('click',done);document.addEventListener('keydown',done);
+  var el=document.getElementById('intro'),root=document.documentElement,form=document.getElementById('intro-form'),input=document.getElementById('intro-password'),status=document.getElementById('intro-status');
+  if(!el||!root.classList.contains('has-intro')||!form||!input||!status)return;
+  root.classList.add('intro-active');
+  function openIntro(message){
+    el.classList.add('granted');
+    status.textContent=message||'Access Permis';
+    window.setTimeout(function(){
+      el.classList.add('open');
+      window.setTimeout(function(){
+        el.remove();
+        root.classList.remove('has-intro','intro-active','intro-unlocked');
+      },700);
+    },700);
+  }
+  if(root.classList.contains('intro-unlocked')){
+    window.setTimeout(openIntro,1200);
+    return;
+  }
+  input.focus();
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(input.value!=='hocuspocus'){
+      el.classList.add('error');
+      input.setAttribute('aria-invalid','true');
+      status.textContent='Parola este incorectă. Încearcă din nou.';
+      input.focus();
+      return;
+    }
+    var storageWarning='';
+    try{localStorage.setItem('intro-unlocked','1')}catch(error){storageWarning=' Parola nu a putut fi memorată pentru reîncărcările viitoare.'}
+    input.removeAttribute('aria-invalid');
+    el.classList.remove('error');
+    openIntro(storageWarning?'Access Permis.'+storageWarning:'Access Permis');
+  });
+  input.addEventListener('input',function(){
+    if(el.classList.contains('error')){
+      el.classList.remove('error');
+      input.removeAttribute('aria-invalid');
+      status.textContent='';
+    }
+  });
 })();
 
 /* Comutator temă: întunecat / luminos. Fără alegere salvată, urmează setarea sistemului. */

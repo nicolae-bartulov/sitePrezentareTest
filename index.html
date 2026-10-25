@@ -11,17 +11,24 @@ try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light')document.docum
 </script>
 <link rel="stylesheet" href="style.css">
 <script>
-/* Ecran de intrare: doar la prima vizită din sesiune și doar dacă nu e activă „mișcare redusă”. Fără JS, nu apare. */
-(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(sessionStorage.getItem('intro'))return;sessionStorage.setItem('intro','1')}catch(e){}document.documentElement.classList.add('has-intro')})();
+/* Ecranul de intrare apare la fiecare încărcare, cu excepția setării „mișcare redusă”. */
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var root=document.documentElement;root.classList.add('has-intro');try{if(localStorage.getItem('intro-unlocked')==='1')root.classList.add('intro-unlocked')}catch(e){}})();
 </script>
 </head>
 <body>
 <a class="skip" href="#continut">Sari la conținut</a>
-<div id="intro" aria-label="Ecran de intrare" role="presentation">
+<div id="intro" aria-label="Acces demo" role="dialog" aria-modal="true">
   <div class="door door-l"></div><div class="door door-r"></div>
   <div class="intro-c">
     <img class="logo intro-logo" src="logo.JPEG" alt="ONYX Security Solutions">
-    <p class="msg" role="status">Access Permis</p>
+    <form id="intro-form" class="intro-form">
+      <label class="intro-label" for="intro-password">Parolă</label>
+      <input id="intro-password" name="password" type="password" autocomplete="off" required>
+      <button class="intro-submit" type="submit" aria-label="Continuă">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </button>
+    </form>
+    <p id="intro-status" class="msg" role="status" aria-live="polite"></p>
   </div>
 </div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">

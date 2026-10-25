@@ -16,8 +16,9 @@ Site static: HTML + CSS + JavaScript, fără instalări.
 - Formularul folosește Web3Forms. Configurează și verifică adresa destinatarului în contul Web3Forms și confirmă că domeniul și cheia de acces sunt configurate corect înainte de publicare. Formularul afișează confirmarea după un răspuns de succes și păstrează datele dacă trimiterea eșuează.
 
 ## Ecran de intrare
-- Apare doar la prima vizită dintr-o sesiune și nu apare dacă utilizatorul are „mișcare redusă” activă.
-- Se închide la click sau la orice tastă, iar un fallback CSS îl ascunde după ~4,5 s chiar dacă JavaScript eșuează.
+- Apare la fiecare încărcare și nu apare dacă utilizatorul are „mișcare redusă” activă.
+- Cere parola demo `hocuspocus` până la prima introducere corectă, apoi o memorează în `localStorage` și rulează automat tranziția la încărcările următoare.
+- Un fallback CSS îl ascunde după ~4,5 s chiar dacă JavaScript eșuează.
 - Logo provizoriu: înlocuiește elementul `.logo` din `#intro` (index.html) cu imaginea logo-ului și șterge eticheta `.intro-ph`.
 
 ## Temă întunecată
